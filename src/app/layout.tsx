@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = "https://daveram1714.github.io";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
   title: {
     default: "Daveram A — Full Stack Developer",
     template: "%s | Daveram A",
@@ -23,7 +20,6 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: siteUrl,
     title: "Daveram A — Full Stack Developer",
     description:
       "A personal digital playground showcasing projects, skills and experiments.",
