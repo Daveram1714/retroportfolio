@@ -1,35 +1,52 @@
-# Daveram.OS — Personal Portfolio
+# Daveram.OS — Retro Developer Portfolio
 
-A retro-inspired desktop portfolio built with Next.js, TypeScript, Tailwind CSS and Framer Motion.
+A retro desktop-inspired portfolio built with a modern React and Next.js stack.
 
-## Getting started
+## Tech stack
+
+- **Next.js 16** — App Router, Server Components, metadata and production routing
+- **React 19** + **TypeScript** — typed interactive UI
+- **Tailwind CSS 4** — CSS-first styling and design tokens
+- **Framer Motion** — animated desktop windows and transitions
+- **Lucide React** — interface icons
+- **clsx** + **tailwind-merge** — reusable conditional class utilities
+
+## Requirements
+
+- Node.js 22 (minimum supported by this project: 20.9)
+- npm
+
+## Run locally
 
 ```bash
+git clone https://github.com/Daveram1714/retroportfolio.git
+cd retroportfolio
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000.
 
-## Build
+## Quality checks
 
 ```bash
+npm run typecheck
+npm run lint
 npm run build
-npm start
 ```
 
-## Customize
+## Project structure
 
-- Edit project cards and profile copy in `src/app/page.tsx`.
-- Update social links in the Contact window.
-- Adjust colors, layout and responsive styles in `src/app/globals.css`.
+```text
+src/
+  app/
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+    desktop-experience.tsx
+  lib/
+    utils.ts
+```
 
-## Stack
-
-- Next.js 14 / React 18
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Lucide icons
-
-Portfolio content is based on the developer profile and public project links. Update any project descriptions to match the latest state of each repository.
+The route is a Server Component. The interactive desktop experience is isolated in a Client Component so browser state and motion stay on the client boundary.
