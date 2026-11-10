@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  ArrowDown, ArrowRight, ArrowUpRight, Braces, BriefcaseBusiness, Check,
-  ChevronRight, Code2, Coffee, Command, Cpu, Database, ExternalLink,
-  Github, Linkedin, Mail, Rocket, Sparkles, Terminal, X
+  ArrowDown, ArrowRight, ArrowUpRight, Braces, Check, ChevronRight,
+  Code2, Coffee, Command, Cpu, Database, ExternalLink, Github, Linkedin,
+  Rocket, Sparkles, Terminal, X
 } from "lucide-react";
 import { PixelAvatar } from "@/components/portfolio/pixel-avatar";
 import { SectionHeading } from "@/components/portfolio/section-heading";
@@ -123,6 +123,13 @@ export default function DesktopExperience() {
     "Type 'help' to explore this machine."
   ]);
   const [clock, setClock] = useState("IND / IST");
+
+  useEffect(() => {
+    const updateClock = () => setClock(new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: true }).format(new Date()));
+    updateClock();
+    const interval = window.setInterval(updateClock, 60_000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   const process = useMemo(
     () => processSteps.find((step) => step.id === activeProcess) ?? processSteps[0],
